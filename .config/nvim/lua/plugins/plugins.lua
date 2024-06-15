@@ -38,11 +38,11 @@ return {
         credo = { enable = false },
         nextls = { enable = false, init_options = { experimental = { completions = { enable = true } } } },
         elixirls = {
-          tag = "v0.18.1",
-          enable = false,
+          tag = "v0.22.0",
+          enable = true,
           settings = elixirls.settings({
-            fetchDeps = false,
-            dialyzerEnabled = false,
+            fetchDeps = true,
+            dialyzerEnabled = true,
             enableTestLenses = true,
           }),
         },

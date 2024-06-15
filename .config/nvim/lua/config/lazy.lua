@@ -25,32 +25,32 @@ require("lazy").setup({
     -- { import = "lazyvim.plugins.extras.lang.json" },
     -- { import = "lazyvim.plugins.extras.ui.mini-animate" },
     -- import/override with your plugins
-    {
-      "neovim/nvim-lspconfig",
-      config = function()
-        local lspconfig = require("lspconfig")
-        local configs = require("lspconfig.configs")
-
-        if not configs.lexical then
-          configs.lexical = {
-            default_config = {
-              filetypes = lexical_config.filetypes,
-              cmd = lexical_config.cmd,
-              root_dir = function(fname)
-                return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
-              end,
-              -- optional settings
-              settings = lexical_config.settings,
-            },
-          }
-        end
-
-        lspconfig.lexical.setup({
-          -- optional config
-          on_attach = custom_attach,
-        })
-      end,
-    },
+    -- {
+    --   "neovim/nvim-lspconfig",
+    --   config = function()
+    --     local lspconfig = require("lspconfig")
+    --     local configs = require("lspconfig.configs")
+    --
+    --     if not configs.lexical then
+    --       configs.lexical = {
+    --         default_config = {
+    --           filetypes = lexical_config.filetypes,
+    --           cmd = lexical_config.cmd,
+    --           root_dir = function(fname)
+    --             return lspconfig.util.root_pattern("mix.exs", ".git")(fname) or vim.loop.os_homedir()
+    --           end,
+    --           -- optional settings
+    --           settings = lexical_config.settings,
+    --         },
+    --       }
+    --     end
+    --
+    --     lspconfig.lexical.setup({
+    --       -- optional config
+    --       on_attach = custom_attach,
+    --     })
+    --   end,
+    -- },
     { import = "lazyvim.plugins.extras.coding.copilot" },
     { import = "plugins" },
   },
